@@ -1,8 +1,8 @@
 const express = require('express');
-const ProductsController  = require('./componentes/controllers/ProductController');
-const CartController  = require('./componentes/controllers/CartController');
-const Product = require('./componentes/models/Product');
-const ServiceException = require("./componentes/exceptions/ServiceExcepction")
+const ProductsController  = require('./components/controllers/ProductController');
+const CartController  = require('./components/controllers/CartController');
+const Product = require('./components/models/Product');
+const ServiceException = require("./components/exceptions/ServiceExcepction");
 const { Router }  = express;
 
 const app = express();
@@ -18,7 +18,6 @@ app.use(express.static(__dirname + '/public'))
 app.use('/api/productos', productRouter);
 app.use('/api/carrito', cartRouter);
 
-
 const server = app.listen(PORT, () => {
     console.log(`Servidor Corriendo en el puerto: ${server.address().port}`)
 });
@@ -30,7 +29,7 @@ server.on('error', function (e) {
 
 app.use((req, res) => {
     res.status(404);
-    res.json({error: -2, description: `Ruta ${req.url} no implementada`})
+    res.json(new ServiceException(-2, `Ruta ${req.url} no implementada`))
 })  
 
 //PRODUCTOS
@@ -98,6 +97,28 @@ productRouter.delete('/:id', (req, res) => {
 })
 //PRODUCTOS
 //CARRITO
+
+cartRouter.get('/:id?', (req, res) => {
+    if(req.params.id)
+        CartController.getById(req.params.id).then(product => {
+            res.json(product)
+        }).catch(err => {
+            res.status(500)
+            res.json(err)
+        })
+    else
+        if(isAdmin)
+            CartController.getAll().then(carts => {
+                res.json(carts)
+            }).catch(err => {
+                res.status(500)
+                res.json(err)
+            })
+        else {
+            res.status(401)
+            res.json(new ServiceException(-1, `Ruta /api/carrito/ método "Traer todos los carritos" no autorizada`))
+        }         
+})
 
 cartRouter.post('/', (req, res) => {
     CartController.post().then((response) => {

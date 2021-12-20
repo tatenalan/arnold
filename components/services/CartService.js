@@ -1,9 +1,8 @@
-const { throws } = require("assert");
 const fs = require("fs")
+var path = require('path');
 const ServiceException = require("../exceptions/ServiceExcepction")
-const ProductService = require('../services/ProductService');
 const Cart = require('../models/Cart');
-const fileName = 'G:/Lisandro/Stuff/MyApps/Coderhouse/Desafios/Trabajo Final/componentes/persistence/carts.json'
+var fileName = path.join(__dirname, '../persistence/carts.json');
 
 class CartService {
     constructor() {
@@ -34,7 +33,7 @@ class CartService {
         if (this.carts.length) {
             let cart = this.carts.find(cart => cart.id == id)
             if (cart) {
-                console.log("Se encontro el carrito: ", cart)
+                console.log("Se encontro el carrito con id: ", cart)
                 return cart;
             }
             else {
@@ -69,7 +68,6 @@ class CartService {
         if (this.carts.length) {
             try {
                 let cart = this.getById(id)
-                console.log("Se encontro el carrito con id: ", cart)
                 return cart.products;
             }
             catch (error) {

@@ -1,6 +1,7 @@
 const fs = require("fs")
+var path = require('path');
 const ServiceException = require("../exceptions/ServiceExcepction")
-const fileName = 'G:/Lisandro/Stuff/MyApps/Coderhouse/Desafios/Trabajo Final/componentes/persistence/products.json'
+var fileName = path.join(__dirname, '../persistence/products.json');
 
 class ProductService {
     constructor() {
