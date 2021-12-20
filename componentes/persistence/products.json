@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "timestamp": "12/11/2002",
+    "name": "Remera",
+    "price": 1000,
+    "description": "Remera super cómoda de algodón",
+    "sku": "REM-01",
+    "stock": 5,
+    "image": "remera.png"
+  },
+  {
+    "id": 3,
+    "timestamp": "01:35:45",
+    "name": "Camisas",
+    "description": "Camisa formal con 7 botones",
+    "sku": "CA-1212   ",
+    "price": 320000,
+    "stock": 10
+  },
+  {
+    "id": 4,
+    "timestamp": "01:39:13",
+    "name": "PEREz",
+    "description": "Camisa formal con 8 botones",
+    "sku": "CA-1212   ",
+    "photo": "",
+    "price": 320000,
+    "stock": 10
+  },
+  {
+    "id": 5,
+    "timestamp": "01:39:45",
+    "name": "PEREz",
+    "description": "Camisa formal con 8 botones",
+    "sku": "CA-1212   ",
+    "photo": "",
+    "price": 320000,
+    "stock": 10
+  },
+  {
+    "id": 6,
+    "timestamp": "01:14:25",
+    "name": "PEREz",
+    "description": "Camisa formal con 8 botones",
+    "sku": "CA-1212   ",
+    "price": 320000,
+    "stock": 10
+  }
+]
