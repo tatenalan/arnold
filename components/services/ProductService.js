@@ -1,6 +1,6 @@
 const fs = require("fs")
 var path = require('path');
-const ServiceException = require("../exceptions/ServiceExcepction")
+const ServiceException = require("../exceptions/ServiceException")
 var fileName = path.join(__dirname, '../persistence/products.json');
 
 

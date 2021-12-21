@@ -2,7 +2,7 @@ const express = require('express');
 const ProductsController  = require('./components/controllers/ProductController');
 const CartController  = require('./components/controllers/CartController');
 const Product = require('./components/models/Product');
-const ServiceException = require("./components/exceptions/ServiceExcepction");
+const ServiceException = require("./components/exceptions/ServiceException");
 const PermissionsException = require("./components/exceptions/PermissionsException");
 const { Router }  = express;
 
@@ -25,7 +25,7 @@ function adminMiddleware(req, res, next) {
     else{
             res.status(401)
             console.log(req.originalUrl);
-            res.json(new PermissionsException(-1, `Ruta ${req.originalUrl} no autorizada`))
+            res.json(new PermissionsException(-1, `Ruta ${req.originalUrl} método ${req.method} no autorizada.`))
         }
 }
 const server = app.listen(PORT, () => {
@@ -39,7 +39,7 @@ server.on('error', function (e) {
 
 app.use((req, res) => {
     res.status(404);
-    res.json(new ServiceException(-2, `Ruta ${req.originalUrl} no implementada`))
+    res.json(new ServiceException(-2, `Ruta ${req.originalUrl} método ${req.method} no implementada.`))
 })  
 
 //PRODUCTOS
