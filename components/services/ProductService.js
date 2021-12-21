@@ -3,6 +3,7 @@ var path = require('path');
 const ServiceException = require("../exceptions/ServiceExcepction")
 var fileName = path.join(__dirname, '../persistence/products.json');
 
+
 class ProductService {
     constructor() {
         this.products = []

@@ -1,5 +1,6 @@
 const ProductService = require('../services/ProductService');
 
+
 class ProductController {
 
     async getAll() {
