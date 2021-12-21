@@ -24,7 +24,8 @@ function adminMiddleware(req, res, next) {
         next();
     else{
             res.status(401)
-            res.json(new PermissionsException(-1, `Ruta /api/productos método "Crear un producto" no autorizada`))
+            console.log(req.originalUrl);
+            res.json(new PermissionsException(-1, `Ruta ${req.originalUrl} no autorizada`))
         }
 }
 const server = app.listen(PORT, () => {
@@ -38,7 +39,7 @@ server.on('error', function (e) {
 
 app.use((req, res) => {
     res.status(404);
-    res.json(new ServiceException(-2, `Ruta ${req.url} no implementada`))
+    res.json(new ServiceException(-2, `Ruta ${req.originalUrl} no implementada`))
 })  
 
 //PRODUCTOS
