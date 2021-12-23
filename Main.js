@@ -10,7 +10,8 @@ const app = express();
 const PORT = process.env.PORT || 8080
 const productRouter = Router();
 const cartRouter = Router();
-const isAdmin = false;
+const adminRouter = Router();
+let isAdmin = true;
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
@@ -18,13 +19,13 @@ app.use(express.static(__dirname + '/public'))
 
 app.use('/api/productos', productRouter);
 app.use('/api/carrito', cartRouter);
+app.use('/isAdmin', adminRouter);
 
 function adminMiddleware(req, res, next) {
     if(isAdmin)
         next();
     else{
             res.status(401)
-            console.log(req.originalUrl);
             res.json(new PermissionsException(-1, `Ruta ${req.originalUrl} método ${req.method} no autorizada.`))
         }
 }
@@ -42,6 +43,15 @@ app.use((req, res) => {
     res.json(new ServiceException(-2, `Ruta ${req.originalUrl} método ${req.method} no implementada.`))
 })  
 
+//Pregunta si es admin
+adminRouter.get('/', (req, res) => {
+    res.json({Admin: isAdmin})
+}) 
+
+adminRouter.put('/', (req, res) => {
+    isAdmin = !isAdmin
+    res.json({Admin: isAdmin})
+})  
 //PRODUCTOS
 
 productRouter.get('/:id?', (req, res) => {
