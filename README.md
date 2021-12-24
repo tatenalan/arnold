@@ -1,6 +1,7 @@
 # Arnold
 
 **TECNOLOGIAS**
+
     *Las tecnoligas usadas son Node Js., Express, Router.
     *Me base en la estructuracion de un framework MVC.
     *Hay un archivo .json que guarda los productos y otro los carritos.
