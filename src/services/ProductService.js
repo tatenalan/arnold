@@ -76,8 +76,8 @@ class ProductService {
             }
         }
         else {
-            console.log(`No existe el product con id: ${id}`)
-            throw new ServiceException(500, "No se pudo actualizar el producto")
+            console.log(`No existe el product con id: ${updateProduct.id}`)
+            throw new ServiceException(500, `No existe el product con id: ${updateProduct.id}`)
         }
     }
 

@@ -1,9 +1,9 @@
 const express = require('express');
-const ProductsController  = require('./components/controllers/ProductController');
-const CartController  = require('./components/controllers/CartController');
-const Product = require('./components/models/Product');
-const ServiceException = require("./components/exceptions/ServiceException");
-const PermissionsException = require("./components/exceptions/PermissionsException");
+const ProductsController  = require('./src/controllers/ProductController');
+const CartController  = require('./src/controllers/CartController');
+const Product = require('./src/models/Product');
+const ServiceException = require("./src/exceptions/ServiceException");
+const PermissionsException = require("./src/exceptions/PermissionsException");
 const { Router }  = express;
 
 const app = express();
