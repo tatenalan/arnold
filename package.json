@@ -2,10 +2,10 @@
   "name": "trabajo-final",
   "version": "1.0.0",
   "description": "",
-  "main": "Main.js",
+  "main": "Index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node Main.js"
+    "start": "node Index.js"
   },
   "author": "",
   "license": "ISC",
