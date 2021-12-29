@@ -11,7 +11,7 @@
   },
   {
     "id": 3,
-    "timestamp": "01:35:45",
+    "timestamp": "14:59:05",
     "name": "Camisas",
     "description": "Camisa formal con 7 botones",
     "sku": "CA-1212   ",
@@ -41,6 +41,24 @@
   {
     "id": 6,
     "timestamp": "01:14:25",
+    "name": "PEREz",
+    "description": "Camisa formal con 8 botones",
+    "sku": "CA-1212   ",
+    "price": 320000,
+    "stock": 10
+  },
+  {
+    "id": 7,
+    "timestamp": "15:01:55",
+    "name": "PEREz",
+    "description": "Camisa formal con 8 botones",
+    "sku": "CA-1212   ",
+    "price": 320000,
+    "stock": 10
+  },
+  {
+    "id": 8,
+    "timestamp": "15:02:00",
     "name": "PEREz",
     "description": "Camisa formal con 8 botones",
     "sku": "CA-1212   ",

@@ -8,16 +8,6 @@
 
 **ENDPOINTS**
 
-**ADMIN**
-
-    //GET (Pregunta si es ADMIN)
-    http://localhost:8080/isAdmin
-
-*******************************************
-
-    //PUT (Cambia el estado del ADMIN(true o false))
-    http://localhost:8080/isAdmin
-
 **PRODUCTOS**
 
     **GET**
@@ -35,6 +25,9 @@
 
     **PUT**
     (Necesita ser ADMIN)
+    Headers:
+        Key: admin
+        Value: 1
     (Actualiza un producto por id)
     http://localhost:8080/api/productos/:idProducto
     http://localhost:8080/api/productos/1
@@ -53,6 +46,9 @@
 
     **POST**
     (Necesita ser ADMIN)
+    Headers:
+        Key: admin
+        Value: 1
     (Inserta un Nuvo producto)
     http://localhost:8080/api/productos/
 
@@ -70,6 +66,9 @@
 
     **DELETE**
     (Necesita ser ADMIN)
+    Headers:
+        Key: admin
+        Value: 1
     (Elimina un producto especifico por idProducto)
     http://localhost:8080/api/productos/:idProducto
     http://localhost:8080/api/productos/7
@@ -79,6 +78,9 @@
 
     **GET**
     (Necesita ser ADMIN)
+    Headers:
+        Key: admin
+        Value: 1
     (Trae todos los carritos si sos admin)
     http://localhost:8080/api/carrito
 
